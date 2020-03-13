@@ -1,0 +1,44 @@
+<div class="container">
+<h1 class="h1 display-6 text-left mt-4 text-light bg-dark">Add Profile Form</h1>
+<form action="/profile/editprofile/{{profile.id}}/?_method=PUT" method="POST" enctype="multipart/form-data">
+  <div class="form-row">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="form-group col-md-6">
+      <label for="inputfile">Photo</label>
+      <input type="file" class="form-control" placeholder="upload pic" name="photo"
+      value="{{profile.photo.0.path}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Name</label>
+      <input type="text" class="form-control" placeholder="enter your name" name="name"
+      value="{{profile.name}}">
+    </div>
+  <div class="form-group col-md-6">
+    <label for="inputAddress">Phone Number</label>
+    <input type="text" class="form-control" placeholder="enter mobile number" name="phonenumber"
+    value="{{profile.phonenumber}}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputAddress2">Company</label>
+    <input type="text" class="form-control" placeholder="enter your company" name="company"
+    value="{{profile.company}}">
+  </div>
+   <div class="form-group col-md-6">
+    <label for="inputAddress2">Location</label>
+    <input type="text" class="form-control" placeholder="enter your location" name="location"
+    value="{{profile.location}}">
+  </div>
+    <div class="form-group col-md-6">
+      <label for="inputCity">Education</label>
+      <input type="text" class="form-control" name="education" placeholder="enter your education"
+      value="{{profile.education}}">
+    </div>
+  <button type="submit" class="btn btn-dark float-right">Submit</button>
+  </div>
+</form>
+{{#each errors}}
+<div class="alert alert-danger mt-2">{{text}}</div>
+{{else}}
+{{/each}}
+
+</div>

@@ -1,0 +1,37 @@
+{{#each profile}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{trimString photo.0.path}}" alt="profilepic" class="img-responsive img-fluid">
+        </div>
+        <div class="col-md-9">
+            <h1 class="bg-dark text-light">Profile data</h1>
+            <ul class="list-group">
+                <li class="list-group-item mt-2"> <span>Name:</span>{{name}}</li>
+                <li class="list-group-item mt-2"><span>PhoneNumber:</span>{{phonenumber}}</li>
+                <li class="list-group-item mt-2"><span>Company:</span>{{company}}</li>
+                <li class="list-group-item mt-2"><span>Location</span>{{location}}</li>
+                <li class="list-group-item mt-2"><span>Education:</span>{{education}}</li>
+            </ul>
+            <p class="text-left float-left m-2">
+                <span class="text-success text-left">{{formatDate date day="numeric" month="long" year="numeric"}}
+                     </span>
+                     </p>
+                     <p class="text-right float-right m-2"><span class="text-danger text-right">
+                         {{formatRelative date}}</span>
+                     </p>
+                     <div class="form-group mt-2 clearfix">
+                         <a href="/profile/editprofile/{{id}}" class="btn btn-outline-primary">Edit Profile</a>
+                     </div>
+                     <form action="/profile/deleteprofile/{{id}}/?_method=DELETE" method="POST">
+                     <input type="hidden" name="_method" value="PUT">
+                         <button class="btn btn-danger mt-2 float-right">Delete</button>
+                     </form>
+
+                      </div>
+                       </div>
+</div>
+{{else}}
+<h1 class="alert alert-danger text-danger">no profile found</h1>
+{{/each}}
+

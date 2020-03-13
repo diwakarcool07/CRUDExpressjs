@@ -1,0 +1,13 @@
+<div class="col-md-4 offset-4">
+    {{#if error}}
+    <div class="alert alert-danger m-2">{{error}}</div>
+    {{/if}}
+</div>
+
+
+{{#each errors}}
+<div class="col-md-4 offset-4">
+<div class="alert alert-danger mt-2">{{text}}</div>
+</div>
+{{else}}
+{{/each}}
